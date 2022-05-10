@@ -7,7 +7,7 @@ require "json"
 
 describe "Test ReJSON" do
   before :all do
-    @rcl = Redis.new(db: 14)
+    @rcl = Redis.new(db: 14, host: "localhost", port: 6479)
 
     @docs = {
       'simple': {
@@ -311,7 +311,7 @@ describe "Test ReJSON" do
       popped.should eq "9"
     end
 
-    it "return null on popping null array" do
+    xit "return null on popping null array" do
       expect do
         @rcl.json_arrpop "null", ".arr", 5
       end.to(raise_error Redis::CommandError)
