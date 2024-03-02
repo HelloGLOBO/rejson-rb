@@ -6,7 +6,7 @@ module Rejson
     attr_accessor :str_path
 
     def self.root_path
-      root = Path.new(".")
+      root = Path.new("$")
       root
     end
 
