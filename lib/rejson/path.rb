@@ -3,15 +3,18 @@
 module Rejson
   # Represents a Path in JSON value
   class Path
+
+    ROOT = "$"
+    
     attr_accessor :str_path
 
     def self.root_path
-      root = Path.new("$")
+      root = Path.new(Path::ROOT)
       root
     end
 
-    def initialize(path)
-      @str_path = path
+    def initialize(path, include_root=false)
+      @str_path = (include_root ? "#{ROOT}#{path}" : path)
     end
   end
 end
