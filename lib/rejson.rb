@@ -21,5 +21,6 @@ end
 
 
 require "rejson/version"
+require "rejson/configuration"
 require "rejson/path"
 require "rejson/client"
