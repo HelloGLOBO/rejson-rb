@@ -14,7 +14,7 @@ module Rejson
     end
 
     def initialize(path, include_root=false)
-      @str_path = (include_root ? "#{ROOT}#{path}" : path)
+      @str_path = (include_root ? "#{Path::ROOT}#{path}" : path)
     end
   end
 end
