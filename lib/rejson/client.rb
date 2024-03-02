@@ -36,7 +36,9 @@ class Redis
     end
 
     begin
-      json_decode call_client(:get, pieces)
+      _json = json_decode(call_client(:get, pieces))
+      _json = _json.try(:[], 0) if Rejson.config.isRESP3?
+      _json
     rescue TypeError
       nil
     end
