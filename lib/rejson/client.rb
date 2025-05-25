@@ -165,7 +165,7 @@ class Redis
   end
 
   def call_client(cmd, pieces)
-    pieces.prepend("JSON.#{cmd.upcase}").join(" ")
-    @client.call pieces
+    command = ["JSON.#{cmd.upcase}", *pieces]
+    @client.call_v(command)
   end
 end
